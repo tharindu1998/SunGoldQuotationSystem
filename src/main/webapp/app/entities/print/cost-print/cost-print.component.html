@@ -1,0 +1,97 @@
+<div class="body">
+
+
+    <div class="page  ">
+        <header>
+            <h1 style="text-align: center">Cost Report</h1>
+        </header>
+        <br>
+        Issued to
+        <div class="row">
+
+            <div class="col-6">
+                <h5> {{client.designation}} {{client.firstName}} {{client.lastName}} </h5>
+                 {{clientAddress.city}} <br>{{clientAddress.address}} <br> Tel : {{client.tel}} <br>
+            </div>
+
+
+            <div class="col-6">
+
+            </div>
+
+        </div>
+        <br>
+
+        <div class="row">
+
+            <div class="col-6">
+                <b> <h5>Sun Gold Solar (Pvt) Limited</h5></b>
+                Singhagiri Mw,Mudukatuwa <br> Marawila <br> Tel : (+94)32 225 3933 Mobile : (+94)70 432 4100<br> E-mail
+                : info@sungoldsolarpvt.com<br>
+                <div style="color:chocolate"> www.sungoldsolarpvt.com</div>
+            </div>
+            <div class="col-6">
+
+            </div>
+
+        </div>
+        <br>
+        <br>
+
+        <div class="row">
+
+            <table class="meta">
+                <tr>
+                    <th width="25%">Construction Material</th>
+                    <td width="25%">{{quotation.mountingStructure}}</td>
+                    <th width="25%">Construction Price Rs:</th>
+                    <td width="25%">{{quotation.constructionPrice}}</td>
+
+
+                </tr>
+
+            </table>
+            <table>
+                <tr>
+                    <th width="25%">Commission %</th>
+                    <td width="75%">{{quotation.commission}}</td>
+                </tr>
+                <tr>
+                    <th width="25%">Profit %</th>
+                    <td width="75%">{{quotation.profit}}</td>
+                </tr>
+                <tr>
+                    <th width="25%">System Price Rs:</th>
+                    <td width="75%">{{quotation.systemPrice}}</td>
+                </tr>
+
+
+            </table>
+
+
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+
+                   <textarea placeholder="notes" style="width: 100%;border:1px solid #999999;
+  margin-top: 5px;
+  padding:3px;"></textarea>
+
+            </div>
+
+
+        </div>
+        <br>
+        <br>
+        <br>
+        <h2>Supervised and signed by</h2>
+        <b><h2>{{quotation.issuedBy}}</h2></b>
+        <br>
+        <br>
+        <h2>..........................................................</h2>
+
+
+    </div>
+
+
+</div>

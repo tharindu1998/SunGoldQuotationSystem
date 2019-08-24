@@ -1,0 +1,117 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="quotation">
+            <h2><span>Quotation</span> {{quotation.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Client Id</span></dt>
+                <dd>
+                    <span>{{quotation.clientId}}</span>
+                </dd>
+                <dt><span>Address Id</span></dt>
+                <dd>
+                    <span>{{quotation.addressId}}</span>
+                </dd>
+                <dt><span>Created</span></dt>
+                <dd>
+                    <span>{{quotation.created}}</span>
+                </dd>
+                <dt><span>System Size</span></dt>
+                <dd>
+                    <span>{{quotation.systemSize}}</span>
+                </dd>
+                <dt><span>Unit Usage</span></dt>
+                <dd>
+                    <span>{{quotation.unitUsage}}</span>
+                </dd>
+                <dt><span>Units Generates</span></dt>
+                <dd>
+                    <span>{{quotation.unitsGenerates}}</span>
+                </dd>
+                <dt><span>Panel Brand</span></dt>
+                <dd>
+                    <span>{{quotation.panelBrand}}</span>
+                </dd>
+                <dt><span>Panel Model</span></dt>
+                <dd>
+                    <span>{{quotation.panelModel}}</span>
+                </dd>
+                <dt><span>Numberof Panels</span></dt>
+                <dd>
+                    <span>{{quotation.numberofPanels}}</span>
+                </dd>
+                <dt><span>Panel Capacity</span></dt>
+                <dd>
+                    <span>{{quotation.panelCapacity}}</span>
+                </dd>
+                <dt><span>Inverter Brand</span></dt>
+                <dd>
+                    <span>{{quotation.inverterBrand}}</span>
+                </dd>
+                <dt><span>Inverter Model</span></dt>
+                <dd>
+                    <span>{{quotation.inverterModel}}</span>
+                </dd>
+                <dt><span>Inverter Capacity</span></dt>
+                <dd>
+                    <span>{{quotation.inverterCapacity}}</span>
+                </dd>
+                <dt><span>Area Needed</span></dt>
+                <dd>
+                    <span>{{quotation.areaNeeded}}</span>
+                </dd>
+                <dt><span>Mounting Structure</span></dt>
+                <dd>
+                    <span>{{quotation.mountingStructure}}</span>
+                </dd>
+                <dt><span>Construction Price</span></dt>
+                <dd>
+                    <span>{{quotation.constructionPrice}}</span>
+                </dd>
+                <dt><span>Profit</span></dt>
+                <dd>
+                    <span>{{quotation.profit}}</span>
+                </dd>
+                <dt><span>Commission</span></dt>
+                <dd>
+                    <span>{{quotation.commission}}</span>
+                </dd>
+                <dt><span>System Price</span></dt>
+                <dd>
+                    <span>{{quotation.systemPrice}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/quotation', quotation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+
+            <br>
+            <br>
+            <div class="btn-group " role="group">
+                <button [disabled]="readyToPrint"
+                        [routerLink]="[ '/print/quotation/'+ quotationId ]"
+                        type="button btn-warning" class="btn btn-danger ">
+                    <fa-icon [icon]="'print'"></fa-icon>
+                    Print Quotation
+                </button>
+                <button [disabled]="readyToPrint"
+                        [routerLink]="[ '/print/cost/'+ quotationId  ]"
+                        type="button  btn-danger" class="btn btn-success ">
+                    <fa-icon [icon]="'print'"></fa-icon>
+                    Print Cost
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>

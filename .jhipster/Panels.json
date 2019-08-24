@@ -1,0 +1,31 @@
+{
+    "name": "Panels",
+    "fields": [
+        {
+            "fieldName": "palenBrand",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "panelModel",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "panelSize",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "panelPrice",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181004184418",
+    "entityTableName": "panels",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

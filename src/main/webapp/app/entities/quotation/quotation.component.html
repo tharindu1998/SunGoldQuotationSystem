@@ -1,0 +1,111 @@
+<div>
+    <h2 id="page-heading">
+        <span>Quotations</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-quotation" [routerLink]="['/quotation/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down" >
+            Create new Quotation
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="Query">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="quotations">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <!--<th><span>ID</span></th>-->
+            <!--<th><span>Client Id</span></th>-->
+            <!--<th><span>Address Id</span></th>-->
+
+            <th><span>Created</span></th>
+                <th><span>Number Of Inverters</span></th>
+            <th><span>System Size</span></th>
+            <th><span>Unit Usage</span></th>
+            <th><span>Units Generates</span></th>
+            <th><span>Panel Brand</span></th>
+            <th><span>Panel Model</span></th>
+            <th><span>Numberof Panels</span></th>
+            <th><span>Panel Capacity</span></th>
+            <th><span>Inverter Brand</span></th>
+            <th><span>Inverter Model</span></th>
+            <th><span>Inverter Capacity</span></th>
+            <th><span>Area Needed</span></th>
+            <th><span>Mounting Structure</span></th>
+            <th><span>Construction Price</span></th>
+            <th><span>Profit</span></th>
+            <th><span>Commission</span></th>
+            <th><span>System Price</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let quotation of quotations ;trackBy: trackId">
+                <!--<td><a [routerLink]="['/quotation', quotation.id, 'view' ]">{{quotation.id}}</a></td>-->
+                <!--<td>{{quotation.clientId}}</td>-->
+                <!--<td>{{quotation.addressId}}</td>-->
+
+
+                <td>{{quotation.created | date:'mediumDate'}}</td>
+                <td>{{quotation.numberOfInverters}}</td>
+
+                <td>{{quotation.systemSize}}</td>
+                <td>{{quotation.unitUsage}}</td>
+                <td>{{quotation.unitsGenerates}}</td>
+                <td>{{quotation.panelBrand}}</td>
+                <td>{{quotation.panelModel}}</td>
+                <td>{{quotation.numberofPanels}}</td>
+                <td>{{quotation.panelCapacity}}</td>
+                <td>{{quotation.inverterBrand}}</td>
+                <td>{{quotation.inverterModel}}</td>
+                <td>{{quotation.inverterCapacity}}</td>
+                <td>{{quotation.areaNeeded}}</td>
+                <td>{{quotation.mountingStructure}}</td>
+                <td>{{quotation.constructionPrice}}</td>
+                <td>{{quotation.profit}}</td>
+                <td>{{quotation.commission}}</td>
+                <td>{{quotation.systemPrice}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/quotation', quotation.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/quotation', quotation.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'quotation/'+ quotation.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,91 @@
+{
+    "name": "Quotation",
+    "fields": [
+        {
+            "fieldName": "clientId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "addressId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "created",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "systemSize",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "unitUsage",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "unitsGenerates",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "panelBrand",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "panelModel",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numberofPanels",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "panelCapacity",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "inverterBrand",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "inverterModel",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "inverterCapacity",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "areaNeeded",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "mountingStructure",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "constructionPrice",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "profit",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "commission",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "systemPrice",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181004184416",
+    "entityTableName": "quotation",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

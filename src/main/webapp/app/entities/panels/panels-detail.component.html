@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="panels">
+            <h2><span>Panels</span> {{panels.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Palen Brand</span></dt>
+                <dd>
+                    <span>{{panels.palenBrand}}</span>
+                </dd>
+                <dt><span>Panel Model</span></dt>
+                <dd>
+                    <span>{{panels.panelModel}}</span>
+                </dd>
+                <dt><span>Panel Size</span></dt>
+                <dd>
+                    <span>{{panels.panelSize}}</span>
+                </dd>
+                <dt><span>Panel Price</span></dt>
+                <dd>
+                    <span>{{panels.panelPrice}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/panels', panels.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

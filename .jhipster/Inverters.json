@@ -1,0 +1,31 @@
+{
+    "name": "Inverters",
+    "fields": [
+        {
+            "fieldName": "inverterBrand",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "inverterModel",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "inverterSize",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "inverterPrice",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181004184417",
+    "entityTableName": "inverters",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

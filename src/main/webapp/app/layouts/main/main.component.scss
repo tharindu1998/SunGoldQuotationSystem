@@ -1,0 +1,11 @@
+
+@media print {
+    .container-fluid{
+        padding: 0;
+    }
+    .card{
+        box-shadow: none !important;
+        border: none !important;
+        background: none !important;
+    }
+}

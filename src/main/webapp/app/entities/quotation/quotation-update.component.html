@@ -1,0 +1,378 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm" (change)="onFormChange()">
+            <h2 id="jhi-quotation-heading">Create or edit a Quotation</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!quotation.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" [(ngModel)]="quotation.id" readonly/>
+                </div>
+
+                <!--<div class="form-group">-->
+                    <!--<label class="form-control-label" for="clientId">Client Id</label>-->
+                    <!--<input type="text" class="form-control" name="clientId" id="clientId" readonly-->
+                           <!--[(ngModel)]="quotation.clientId"/>-->
+                <!--</div>-->
+
+
+                <!--<div class="form-group">-->
+                    <!--<label class="form-control-label" for="addressId">Address Id</label>-->
+                    <!--<input type="text" class="form-control" name="addressId" id="addressId" readonly-->
+                           <!--[(ngModel)]="quotation.addressId"/>-->
+                <!--</div>-->
+
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="field_created">Created</label>
+                            <div class="input-group">
+                                <input id="field_created" type="text" required class="form-control" name="created"
+                                       ngbDatepicker
+                                       #createdDp="ngbDatepicker" [(ngModel)]="quotation.created"/>
+                                <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="createdDp.toggle()">
+                                <fa-icon [icon]="'calendar-alt'"></fa-icon>
+                            </button>
+                        </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+
+                        <div class="form-group">
+                            <label class="form-control-label" for="field_unitUsage">Unit Usage According to
+                                Client</label>
+
+                            <input type="text" class="form-control" required name="unitUsage" id="field_unitUsage"
+                                   [(ngModel)]="quotation.unitUsage"/>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row w3-panel w3-border  ">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="field_panelBrand">Panel Brand</label>
+                            <select required class="form-control" [(ngModel)]="quotation.panelBrand" name="panelBrands"
+                                    id="field_panelBrand">
+                                <option *ngFor="let pv of panelBrands" [value]="pv">{{pv}}</option>
+                            </select>
+
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="field_panelModel">Panel Model</label>
+                            <select class="form-control" required [(ngModel)]="quotation.panelModel" name="panelModel"
+                                    (ngModelChange)="panelModelChange($event)"
+                                    id="field_panelModel">
+                                <option *ngFor="let md of filteredPanelModels" [value]="md.panelModel+','+md.panelSize">
+                                    {{md.panelModel}} {{md.panelSize}}
+                                </option>
+                            </select>
+
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="field_panelCapacity">Panel Capacity <b>W</b></label>
+                            <input type="number" class="form-control" required name="panelCapacity"
+                                   id="field_panelCapacity" [(ngModel)]="quotation.panelCapacity"/>
+                        </div>
+
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="field_numberofPanels">Numberof Panels</label>
+                            <input type="number" class="form-control" required name="numberofPanels"
+                                   id="field_numberofPanels"
+                                   [(ngModel)]="quotation.numberofPanels"
+                                   (ngModelChange)="numberOfPanelsChanged($event)"/>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label class="form-control-label" for="field_systemSize">System Size <b>kW</b></label>
+                            <input type="number" class="form-control" required name="systemSize"
+                                   id="field_systemSize"
+                                   [(ngModel)]="quotation.systemSize" (ngModelChange)="systemSizeChanged($event)"/>
+                        </div>
+
+                    </div>
+
+                    <div class="col-6">
+
+                        <div class="form-group">
+                            <label class="form-control-label" for="field_areaNeeded">Area Needed
+                                <b>ft<sup>2</sup></b></label>
+                            <input type="number" class="form-control" required name="areaNeeded" id="field_areaNeeded"
+                                   [(ngModel)]="quotation.areaNeeded"/>
+                        </div>
+                    </div>
+
+
+                    <div class="col-6">
+
+                        <div class="form-group">
+                            <label class="form-control-label" for="field_unitsGenerates">Units Generates</label>
+                            <input type="number" class="form-control" required name="unitsGenerates"
+                                   id="field_unitsGenerates"
+                                   [(ngModel)]="quotation.unitsGenerates"/>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label class="form-control-label">Panel Total Price <b>Rs:</b></label>
+                            <input type="number" class="form-control" required name="panelPrice"
+                                   [(ngModel)]="quotation.panelPrice"
+                            />
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <hr>
+                <div class="row w3-panel w3-border  ">
+
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label class="form-control-label" for="field_inverterBrand">Inverter Brand</label>
+                            <select class="form-control" [(ngModel)]="quotation.inverterBrand" required
+                                    name="inverterBrand"
+                                    id="field_inverterBrand">
+                                <option *ngFor="let inv of inverterBrands" [value]="inv">{{inv}}</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="field_inverterModel">Inverter Model</label>
+
+
+                            <!--<input type="text" class="form-control" list="inverters" required name="inverterModel"-->
+                            <!--id="field_inverterModel"-->
+                            <!--[(ngModel)]="quotation.inverterModel"/>-->
+
+                            <!--<datalist id="inverters">-->
+                            <!--<option *ngFor="let inv of filteredInverterModels" [value]="inv.inverterModel"><h6>-->
+                            <!--{{inv.inverterModel}} {{inv.inverterSize}}kW</h6></option>-->
+                            <!--</datalist>-->
+
+
+                            <select class="form-control" [(ngModel)]="quotation.inverterModel" required
+                                    name="inverterModel"
+                                    id="field_inverterModel">
+                                <option *ngFor="let inv of filteredInverterModels" [value]="inv.inverterModel">
+                                    {{inv.inverterModel}} {{inv.inverterSize}}kW
+                                </option>
+                            </select>
+
+
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="number_of_inverters">Number Of Inverters </label>
+                            <input type="number" class="form-control" required name="numberOfInverters"
+                                   id="number_of_inverters"
+                                   [(ngModel)]="quotation.numberOfInverters"/>
+                        </div>
+                    </div>
+
+
+                    <hr>
+                    <div class="col-6">
+
+                        <div class="form-group">
+                            <label class="form-control-label" for="field_inverterModel2">Inverter Model #2</label>
+                            <!--<input type="text" class="form-control"   name="inverterModel2"-->
+                            <!--id="field_inverterModel2" list="inverters"-->
+                            <!--[(ngModel)]="quotation.inverterModel2"/>-->
+
+
+                            <select class="form-control" [(ngModel)]="quotation.inverterModel2" name="inverterModel2"
+                                    id="field_inverterModel2">
+                                <option *ngFor="let inv of filteredInverterModels" [value]="inv.inverterModel">
+                                    {{inv.inverterModel}} {{inv.inverterSize}}kW
+                                </option>
+                            </select>
+
+
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="number_of_inverters2">Number Of Inverters #2</label>
+                            <input type="number" class="form-control" name="numberOfInverters2"
+                                   id="number_of_inverters2"
+                                   [(ngModel)]="quotation.numberOfInverters2"/>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label class="form-control-label">Inverter Total Price <b>Rs:</b></label>
+                            <input type="number" class="form-control" required name="inverterPrice"
+                                   [(ngModel)]="quotation.inverterPrice"
+                            />
+                        </div>
+                    </div>
+
+
+                    <!--<div class="col-6">-->
+                    <!--<div class="form-group">-->
+                    <!--<label class="form-control-label" for="field_inverterCapacity">Inverter Capacity</label>-->
+                    <!--<input type="number" class="form-control" required name="inverterCapacity"-->
+                    <!--id="field_inverterCapacity"-->
+                    <!--[(ngModel)]="quotation.inverterCapacity"/>-->
+                    <!--</div>-->
+                    <!--</div>-->
+
+                </div>
+
+                <hr>
+
+                <div class="row w3-panel w3-border  ">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="field_mountingStructure">Mounting Structure</label>
+                            <input type="text" class="form-control" required name="mountingStructure"
+                                   id="field_mountingStructure"
+                                   [(ngModel)]="quotation.mountingStructure"/>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="field_constructionPrice">Construction Price
+                                <b>Rs:</b></label>
+                            <input type="number" class="form-control" required name="constructionPrice"
+                                   id="field_constructionPrice"
+                                   [(ngModel)]="quotation.constructionPrice"/>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="row w3-panel w3-border  ">
+
+                    <div class="col-6">
+
+                        <div class="form-group">
+                            <label class="form-control-label" for="field_profit">Profit <b>%</b></label>
+                            <input type="number" class="form-control" required name="profit" id="field_profit"
+                                   [(ngModel)]="quotation.profit"/>
+                        </div>
+                    </div>
+                    <div class="col-6">
+
+                        <div class="form-group">
+                            <label class="form-control-label" for="field_commission">Commission <b>%</b></label>
+                            <input type="number" class="form-control" required name="commission" id="field_commission"
+                                   [(ngModel)]="quotation.commission"/>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <hr>
+
+                <div class="row w3-panel w3-border  ">
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="field_issuedby">Issued by </label>
+                            <!--<input type="text" class="form-control" required name="issuedby" id="field_issuedby"-->
+                            <!--[(ngModel)]="quotation.issuedBy"/>-->
+
+
+                            <select class="form-control" [(ngModel)]="quotation.issuedBy" required
+                                    name="issuedby"
+                                    id="field_issuedby">
+                                <option *ngFor="let inv of users" [value]="inv.firstName+ ' ' + inv.lastName">
+                                    {{inv.firstName}} {{inv.lastName}}
+                                </option>
+                            </select>
+
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="field_telephone" readonly>Telephone </label>
+                            <input type="text" class="form-control" name="telephone" id="field_telephone"
+                                   [(ngModel)]="quotation.issuersTelephone"/>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_systemPrice">System Price <b>Rs:</b></label>
+                    <input type="number" class="form-control" required name="systemPrice" id="field_systemPrice"
+                           [(ngModel)]="quotation.systemPrice"/>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving"
+                        class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+                <!---->
+                <!--<button type="submit" id="print-quotation" [disabled]="editForm.form.invalid || isSaving"-->
+                <!--class="btn btn-danger">-->
+                <!--<fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Print Quotation</span>-->
+                <!--</button>-->
+
+                <!--<button type="submit" id="print-cost" [disabled]="editForm.form.invalid || isSaving"-->
+                <!--class="btn btn-warning">-->
+                <!--<fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Print Cost Report</span>-->
+                <!--</button>-->
+
+                <!--<div class="btn-group " role="group" style="float: right">-->
+                    <!--<button [disabled]="readyToPrint  " [routerLink]="[ '/print/quotation/'+ quotationId ]"-->
+                            <!--type="button btn-warning" class="btn btn-danger ">-->
+                        <!--<fa-icon [icon]="'print'"></fa-icon>-->
+                        <!--Print Quotation-->
+                    <!--</button>-->
+                    <!--<button [disabled]="readyToPrint  " [routerLink]="[  '/print/cost/'+ quotationId   ]"-->
+                            <!--type="button  btn-danger" class="btn btn-success ">-->
+                        <!--<fa-icon [icon]="'print'"></fa-icon>-->
+                        <!--Print Cost-->
+                    <!--</button>-->
+                <!--</div>-->
+
+            </div>
+        </form>
+    </div>
+</div>

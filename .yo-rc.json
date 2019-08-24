@@ -1,0 +1,33 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.heavenscode.sungoldsolar"
+    },
+    "jhipsterVersion": "5.3.4",
+    "applicationType": "monolith",
+    "baseName": "SunGoldSolar",
+    "packageName": "com.heavenscode.sungoldsolar",
+    "packageFolder": "com/heavenscode/sungoldsolar",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "mongodb",
+    "devDatabaseType": "mongodb",
+    "prodDatabaseType": "mongodb",
+    "searchEngine": "elasticsearch",
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "ODI2OTllMWJmNTU0MDFjOWU0NTUyOWI2MWJlZTk4YmIxYTEyYjg5Nzk1N2EyMDYzNGFmYmY1NTI4N2I3ZThkZjBkMGJlZDRhMGFiOTc5Mzc2NjBlYWZlNDIwYTk3YTU2OWMyMTRmYzhlYzM2MDZjNDFmZGZmOTljZjkyZGZkMmU=",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "otherModules": [],
+    "enableTranslation": false
+  }
+}

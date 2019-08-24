@@ -1,0 +1,32 @@
+<div class="body">
+
+
+    <div class="page cover">
+
+        <strong><p style="text-align:center; font-size:150%; margin-top:70%; color: black ">Quotation for {{systemSize}}
+            kW Solar Net Metering
+            System <br>For<br> {{designation}}. {{client.firstName}} {{client.lastName}} </p>
+            <br>
+            <br>
+            <p style="text-align:center; font-size:120%;" >Contact :{{quotation.issuedBy}} – {{quotation.issuersTelephone}}</p>
+        </strong>
+    </div>
+
+
+    <div class="page">
+        <app-page1 [quotation]="quotation" [client]="client"></app-page1>
+    </div>
+
+
+    <div class="page">
+        <app-page2></app-page2>
+    </div>
+    <div class="page">
+        <jhi-meetering-andfinancing></jhi-meetering-andfinancing>
+    </div>
+    <div class="page">
+        <app-page3 [quotation]="quotation"></app-page3>
+    </div>
+
+
+</div>

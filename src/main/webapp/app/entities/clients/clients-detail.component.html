@@ -1,0 +1,91 @@
+<div class="row justify-content-center">
+
+
+    <div class="col-4">
+        <div *ngIf="clients">
+            <h2><span>Client</span></h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Created</span></dt>
+                <dd>
+                    <span>{{clients.created | date:'MM/dd/yyyy h:mm:ss a'}}</span>
+                </dd>
+                <dt><span>Client Name</span></dt>
+                <dd>
+                    <span>{{clients.designation}} {{clients.firstName}} {{clients.lastName}}</span>
+                </dd>
+
+                <dt><span>Nic Number</span></dt>
+                <dd>
+                    <span>{{clients.nicNumber}}</span>
+                </dd>
+                <dt><span>Tel</span></dt>
+                <dd>
+                    <span>{{clients.tel}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit" (click)="previousState()" class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button" [routerLink]="['/clients', clients.id, 'edit']" class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+
+            <button type="button" [routerLink]="['/client-address/new',clients.id]" class="btn btn-warning">
+                <i class="fas fa-map-marked-alt"></i>&nbsp;<span> Add a site for this client</span>
+            </button>
+
+
+        </div>
+    </div>
+
+    <div class="col-8">
+
+        <h2><span>Sites</span></h2>
+        <hr>
+
+        <div style="width: 100%; height: 300px; overflow-y: scroll;">
+            <div class="list-group">
+
+
+                <div class="row" *ngFor="let ad of issuedQuotations ">
+                    <div class="col-4">
+                        <a [routerLink]="['/quotation/new',clients.id,ad.address[0].id]"
+                           class="list-group-item list-group-item-action flex-column align-items-start  ">
+
+                            <p class="mb-1">
+                                {{ad.address[0].address}}<br>
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1"> {{ad.address[0].city}} </h5>
+                            </div>
+                            {{ad.address[0].postalCode}}
+                            </p>
+
+                        </a>
+                    </div>
+                    <div class="col-1" style="position: relative">
+                        <button  [routerLink]="['/client-address/'+ad.address[0].id+'/view']" class="btn btn-success" type="button" style="position: absolute; height: 100%; margin: 0" > <fa-icon [icon]="'pencil-alt'"></fa-icon> </button>
+
+                    </div>
+                    <div class="col-7">
+                        <div style="width: 95%; height: 110px; overflow-y: scroll; overflow-x: hidden">
+                        <a  *ngFor="let i of ad.quotation "  [routerLink]="['/quotation/'+i.id +'/edit'   ]" style="width: 100%;"><p>
+                            {{i.indexId}}) Issued on {{i.created | date:'dd-MMMM-yyyy'}}  </p></a>
+                        </div>
+
+                    </div>
+                </div>
+                <hr>
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>

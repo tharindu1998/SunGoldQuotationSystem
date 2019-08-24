@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-6">
+
+    </div>
+    <div class="col-6">
+        <h5>Sun Gold Solar (Pvt) Limited</h5>
+        Singhagiri Mw,Mudukatuwa <br>
+        Marawila <br>
+        Tel : (+94)32 225 3933 Mobile : (+94)70 432 4100<br>
+        E-mail : info@sungoldsolarpvt.com<br>
+        <div style="color:chocolate"> www.sungoldsolarpvt.com</div>
+    </div>
+
+    <div class="col-4 col-offset-8">
+        <p>
+            {{quotation.created | date:'dd-MMMM-yyyy'}}<br>
+            {{client.designation}} .{{client.firstName}} {{client.lastName}} <br>
+            {{addresses.address}} ,<br>
+            {{addresses.city}},{{addresses.postalCode}}
+        </p>
+        <p>Our Reference: SGS <br></p>
+        <p>Dear Sir/Madam,</p><br><br>
+    </div>
+
+
+    <div class="col-12">
+        <p style="text-align:center; font-weight:bold; width: 100%">Offer for the supply of {{systemSize}}kw solar
+            Net-Metering system with
+            {{inv}} inverter<br>
+            for {{client.designation}}. {{client.firstName}} {{client.lastName}} </p><br><br>
+    </div>
+    <div class="col-12" style="text-align:justify">
+        &nbsp;&nbsp;&nbsp;&nbsp; Sun Gold Solar (Pvt.) Ltd. to quote for the above project. We gnarly appreciate your
+        Interest in
+        sustainable energy solution. This quotation offer fully complies with the data presented to us.
+        However, we will be pleased to carry out a comprehensive detailed presentation at your
+        convenience.<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp; The findings from our calculations suggest Installing {{inv}}kw systems for you and our
+        offer
+        fully
+        complies with your requirement so according to the sufficient roofing area, we can offer {{inv}} kW
+        system. The Proposed system will generate approximately {{quotation.unitsGenerates}}(mostly above) units per month.
+        The
+        inverters Installed will be for a total capacity of  {{inv}} (you can upgrade in future).<br><br>
+        The rating proposed will be adequate for the purpose of reducing the electricity Invoice to a
+        very low level. Please after the detailed proposal for all relevant Information of the proposed
+        system. However, If you need further clarifications or Information please do not hesitate to
+        contact Mr.{{quotation.issuedBy}} – {{quotation.issuersTelephone}}<br><br>
+        <strong> The Package:<br> </strong>
+        &nbsp;&nbsp;&nbsp;&nbsp; The package will be offered consists of {{inv}} {{quotation.inverterBrand}} Inverter,
+        {{quotation.panelBrand}} {{quotation.panelModel}}
+        solar panels, mounting structure and other electrical wiring and neccesary equipment.
+    </div>
+
+
+</div>

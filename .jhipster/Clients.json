@@ -1,0 +1,40 @@
+{
+    "name": "Clients",
+    "fields": [
+        {
+            "fieldName": "created",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "firstName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "designation",
+            "fieldType": "Designation",
+            "fieldValues": "Ms,Mr,Miss,Dr,Rev"
+        },
+        {
+            "fieldName": "nicNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tel",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181004184414",
+    "entityTableName": "clients",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
